@@ -11,30 +11,44 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* 2018: Research Visit at University of California, Irvine (UCI)
+  * Three months visit to Prof. Emre Neftci, funded by the DAAD FITweltweit travel grant
+* 2015-2020: PhD at Karlsruher Institut für Technologie (KIT), Germany by the Human Brain Project
+* 2015: Master 2 at Université Grenoble Alpes, France
+  * International MoSIG degree in Graphics, Vision and Robotics
+* 2013: Master 1 at Université de Strasbourg, France
+  * Erasmus year in Durham University, England
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2015-Present: Research Scientist at FZI Forschungszentrum Informatik, Karlsruhe
+  * Developing robot behaviors, vision algorithms, learning models and web interfaces for [various projects](https://youtu.be/zyq1PZAck50)
+* 2015: Master Thesis in Sensor Fusion at INRIA, Grenoble, France
+  * Evaluation of a closed-form solution solving the visual-inertial structure from motion problem
+* 2014: Full-Stack Web Developer at Shwish, Melbourne, Australia
+  * Development of an online gifting platform from scratch using the MEAN stack
+* 2013: JavaScript/WebGL Developer at Skimlab, Strasbourg, France
+  * Development of WebGL shaders for environment mapping and raytracing
+* 2012-2013: Individual tutor in mathematics for high school students at Complétude
+* 2012: Research Assistant in Computer Graphics, iCube, Strasbourg
+  * Development of an application for deforming mesh on a virtual reality platform
+* 2011: Research Assistant in Computer Graphics, iCube, Strasbourg
+  * Interactive 3D cursor to ease the perception of depth in virtual reality applications
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python
+* C++
+* JavaScript
+* ROS
+* PyTorch
+* Linux
+
+Languages
+======
+1. French
+2. English
+3. German
 
 Publications
 ======
@@ -48,12 +62,9 @@ Talks
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
   
-Teaching
+Extracurricular Activities
 ======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* Juggling
+* Snowboard
+* WWOOFing
   
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
