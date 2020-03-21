@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+[Download CV in pdf](/files/cv.pdf)
+
 Education
 ======
 * 2018: Research Visit at University of California, Irvine (UCI)
