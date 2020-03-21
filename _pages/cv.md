@@ -36,7 +36,7 @@ Work experience
   * Development of an application for deforming mesh on a virtual reality platform
 * 2011: Research Assistant in Computer Graphics, iCube, Strasbourg
   * Interactive 3D cursor to ease the perception of depth in virtual reality applications
-  
+
 Skills
 ======
 * Python
@@ -52,21 +52,20 @@ Languages
 2. English
 3. German
 
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
 Extracurricular Activities
 ======
 * Juggling
 * Snowboard
 * WWOOFing
-  
+
+Publications
+======
+  <ul>{% for post in site.publications %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+
+Talks
+======
+  <ul>{% for post in site.talks %}
+    {% include archive-single-talk-cv.html %}
+  {% endfor %}</ul>
