@@ -73,9 +73,10 @@ social:
 
 # Analytics
 analytics:
-  provider               :  false # false (default), "google", "google-universal", "custom"
+  provider               :  "google" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
+    tracking_id          : "UA-42929181-4"
+
 
 
 # Site Author
@@ -103,13 +104,13 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : "jacqueskaiser"
-  orcid            : 
+  orcid            :
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : 
+  twitter          :
   vine             :
   weibo            :
   xing             :
