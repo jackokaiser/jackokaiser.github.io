@@ -7,8 +7,6 @@ tags:
   - Time tracking
 ---
 
-# Jupyter notebook for analyzing Gleeo time data
-
 I have been using the [Gleeo time tracker](https://www.gleeo.com/index.php/en/) app on my phone to track my time at work for multiple years.
 To make sense of the data, I implemented a [jupyter notebook](https://github.com/jackokaiser/gleeo_time_analysis).
 The notebook reports:
