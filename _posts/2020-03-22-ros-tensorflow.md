@@ -82,7 +82,16 @@ class ModelWrapper():
                 callbacks=callbacks)
 ```
 
-We will call this function from an action server.
+The line `tf.compat.v1.keras.backend.set_session(self.session)` restores the session object to the main thread.
+If you omit this line, you we'll get a strange error that will look like the following:
+
+{:.error-console}
+```Console
+Error processing request: Error while reading resource variable model/dense_1/kernel from Container: localhost. This could mean that the variable was uninitialized. Not found: Container localhost does not exist. (Could not find resource: localhost/model/dense_1/kernel)
+     [[{{node model/dense_1/MatMul/ReadVariableOp}}]]
+```
+
+We will the `train` function from an action server.
 Note that we declare a `callbacks` parameter, which will allow us to **provide action feedback** while the model is training and **cancel training** when the action is cancelled.
 Here are some nice wrappers to achieve this:
 
