@@ -3,12 +3,20 @@ permalink: /
 title: "About me"
 excerpt: "About me"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-Graduated with an international Master degree in computer graphics, vision and robotics, I am currently working as a [robotic engineer in FZI](https://www.fzi.de/de/wir-ueber-uns/organisation/mitarbeiter/address/jacques-kaiser/) and simultaneously pursuing a PhD within the Human Brain Project.
-Throughout my studies, I lived and worked in five different countries - France, England, Australia, USA and Germany. 
+Professionally
+-----
 
-Aside from my studies, I have cumulated years of experience working in web development for startups. Proficient full-stack developer, I pick up new technologies very quickly.
+I completed a PhD at the Karlsruhe Institute of Technology (KIT) focusing on [neuromorphic vision and learning in spiking neural networks](https://publikationen.bibliothek.kit.edu/1000122690), funded by the Humain Brain Project and a DAAD scolarship.
+Simultaneously, I have been working over five years at [FZI Forschungszentrum Informatik](https://www.fzi.de/en/home/), developing robot demonstrators using ROS for [various projects](https://www.youtube.com/watch?v=zyq1PZAck50&ab_channel=FZIchannel).
+Previously, I was a full-stack web developer for [start-ups](/work-experiences/).
+
+Personally
+-----
+
+I was born in France, but spent my last years in foreign countries: England, Australia and Germany.
+Aside from programming, I am also developing my handicraft skills by [converting a van into a camper](https://vanderfool.com).
