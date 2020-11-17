@@ -91,7 +91,7 @@ Error processing request: Error while reading resource variable model/dense_1/ke
      [[{{node model/dense_1/MatMul/ReadVariableOp}}]]
 ```
 
-We will the `train` function from an action server.
+We will call the `train` function from an action server.
 Note that we declare a `callbacks` parameter, which will allow us to **provide action feedback** while the model is training and **cancel training** when the action is cancelled.
 Here are some nice wrappers to achieve this:
 
