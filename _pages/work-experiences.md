@@ -5,15 +5,27 @@ permalink: /work-experiences/
 author_profile: true
 ---
 
+Tech4Gaïa: Noehmi by ocellus (_2020-current_)
+-----
+
+In this young [French Tech startup](https://www.tech4gaia.com/), we are developing a smart beehive device called [Noehmi](http://noehmi.com/)'.
+This device includes sensors to monitor the health of the bee colony, and actuators performing simple beekeeping tasks.
+As the Chief Data Officer (CDO) and Chief Web Officer (CWO), I am in charge of all the software involved after the data has left the device.
+The device communicates information to the node.js server with MQTT.
+The data is stored in a PostgreSQL database and processed with SciPy.
+The beekeeper gets this information from the vue.js progressive web app.
+I have implemented all the micro-services using docker-compose.
+
 FZI research center for information technology (_2015-2020_)
 -----
 
-I am currently employed as a robotics engineer at [FZI research center for information technology](http://www.fzi.de/en/home/ "FZI"), and simultaneously pursuing a PhD within the [Human Brain Project](http://www.fzi.de/en/research/projekt-details/human-brain-project/ "Human Brain Project at FZI") in [Neurorobotics](https://neurorobotics.net "Neurorobotics in the Human Brain Project").
+Robotics engineer position at [FZI research center for information technology](http://www.fzi.de/en/home/ "FZI"), while simultaneously pursuing a PhD within the [Human Brain Project](http://www.fzi.de/en/research/projekt-details/human-brain-project/ "Human Brain Project at FZI") in [Neurorobotics](https://neurorobotics.net "Neurorobotics in the Human Brain Project") at Karlsruher Institut für Technologie (KIT).
 
-As a robotics engineer, I am involved in a variety of robotics projects, with a focus on computer vision, machine learning and web development.
+As a robotics engineer, I was involved in a variety of robotics projects, with a focus on computer vision, machine learning and web development.
 
-As a PhD student, I am developing spiking network models to learn robot control from event-based vision.
-I also participate in the development of the Neurorobotics platform, a web-app wiring brain simulations with robotic simulations.
+As a PhD student, I have developed spiking network models to learn robot control from event-based vision.
+I have also participated in the development of the Neurorobotics platform, a web-app wiring brain simulations with robotic simulations.
+In this [blog post](/posts/2020/08/synaptic-learning) I briefly describe my PhD thesis.
 
 **Reference - [Prof. Dr. Rüdiger Dillmann](https://www.fzi.de/de/wir-ueber-uns/organisation/mitarbeiter/address/ruediger-dillmann/)**
 
