@@ -8,7 +8,7 @@ author_profile: true
 Tech4Gaïa: Noehmi by ocellus (_2020-current_)
 -----
 
-In this young [French Tech startup](https://www.tech4gaia.com/), we are developing a smart beehive device called [Noehmi](http://noehmi.com/)'.
+In this young [French Tech startup](https://www.tech4gaia.com/), we are developing a smart beehive device called [Noehmi](http://noehmi.com/).
 This device includes sensors to monitor the health of the bee colony, and actuators performing simple beekeeping tasks.
 As the Chief Data Officer (CDO) and Chief Web Officer (CWO), I am in charge of all the software involved after the data has left the device.
 The device communicates information to the node.js server with MQTT.
