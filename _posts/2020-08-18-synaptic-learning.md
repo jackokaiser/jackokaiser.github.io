@@ -79,13 +79,14 @@ At its core, learning requires:
 The goal of learning is to find the weights which minimize this loss function: $$W^\star=argmin_W L(W)$$.
 
 To find the best weights, a naive approach would be to try random weights, evaluate the loss function, and simply keep the ones where the loss function is the smallest.
-In fact, this is what evolutionary algorithms are doing.
+This is the strategy of black-box optimization methods such as evolutionary algorithms.
 However, evaluating the loss function is expensive, and we would like to do it as few times as possible.
 To this end, the best method to date is gradient descent.
 The gradient of the loss by the weights $$\frac{\partial L}{\partial w_{ij}}$$ for all weights $$w_{ij} \in W$$ is computed at the same time the loss $$L(W)$$ is evaluated.
+Unlike black-box optimization, this requires to know what computations are performed by the model.
 By definition, the gradient of the loss by a weight $$w_{ij}$$ means **how an infinitesimal change in $$w_{ij}$$ affects the loss**.
 Therefore, by taking an (arbitrary small) step in the opposite direction of the gradient, we have good chances that the loss function will decrease.
-Gradient descent repeats this operation for all weights $$w_{ij} \in W$$ until the loss function stop decreasing:
+Gradient descent repeats this operation for all weights $$w_{ij} \in W$$ until the loss function stops decreasing:
 
 $$ w_{ij} \leftarrow w_{ij} - \alpha \times \frac{\partial L}{\partial w_{ij}},$$
 
@@ -101,29 +102,28 @@ These are the $$u_i$$ and the $$s_i$$ terms in the following neural equations:
 $$
 \begin{aligned}
     u_i &= \sum_{j\in \textit{pre}} w_{ij} \times s_j \\
-    s_i &= u_i \: \text{if} \: u_i > 0 \: \text{else} \: 0
+    s_i &= u_i \; \text{if} \; u_i > 0 \; \text{else} \; 0
 \end{aligned}
 $$
 
 Using this definition, the step from a conventional neuron to a spiking neuron is small.
 In fact, there are only two important differences with spiking neurons:
 - $$ u_i $$ carries a trace of the previous activity (it is a state which needs to be stored and updated). It is called the membrane potential.
-- $$ s_i $$ is a threshold function (0 or 1, denoting spike and absence of spike, unlike conventional neuron which have output in $$\mathbb{R}$$).
+- $$ s_i $$ is either 0 or 1, denoting spike and absence of spike, unlike conventional neuron which have output in $$\mathbb{R}$$).
 
 Mathematically, a spiking neuron can be expressed as:
 
 $$
 \begin{aligned}
     u_i &= \sum_{j\in \textit{pre}} w_{ij} (\epsilon \ast s_j) + \eta \ast s_i \\
-    s_i &= 1 \: \text{if} \: u_i > 0 \: \text{else} \: 0
+    s_i &= 1 \; \text{if} \; u_i > 0 \; \text{else} \; 0
 \end{aligned}
 $$
 
 The $$\ast$$ operation denotes a temporal convolution, with kernel $$\epsilon$$ and $$\eta$$ respectively.
 In words, this means that $$u_i$$ also depends on the previous values of $$s_j$$ and $$s_i$$.
-Both dependencies are important.
-For the first convolution: a spike $$s_j$$ is instantaneous, so it should leave a trace in $$u_i$$.
-For the second convolution: after a neuron spikes, it should stop spiking for some time -- this is called the refractory period.
+A spike $$s_j$$ is instantaneous, but it leaves a trace in $$u_i$$: this is the first convolution.
+The second convolution denotes the decrease of the membrane potential of a neuron, right after it emitted a spike, commonly called the refractory period.
 A simple way to model this is simply by having the neuron inhibiting itself, with $$\eta \ast s_i < 0$$.
 
 {:.wrapper-md}
@@ -145,10 +145,10 @@ Let's discuss these terms one by one.
 This term captures how a change in synaptic weight affects the weighted sum of inputs $u_i$.
 For a conventional deep learning neuron, this term is simple to calculate, it is simply $$s_j$$.
 For a spiking neuron, the calculation is more involved, especially because of how a change in weight $$w_{ij}$$ affects the refractory period.
-Here comes the first approximation to backpropagation for spiking neuron: we simply ignore this term.
+Here comes the first approximation to backpropagation for spiking neuron: we ignore the refractory period in the gradient calculation.
 Note that if neurons do not spike often (in the brain neurons spike at maximum 60Hz) then refractory periods won't play a big role in the dynamics.
 Therefore ignoring it in the gradient computation won't affect learning too much.
-Using this approximation we can write $$\frac{\partial u_i}{\partial w_{ij}} = \epsilon \ast s_j$$.
+Using this approximation we can write $$\frac{\partial u_i}{\partial w_{ij}} \approx \epsilon \ast s_j$$.
 
 ### Calculation of $$\dfrac{\partial s_i}{\partial u_{i}}$$:
 
@@ -157,19 +157,19 @@ With conventional deep learning neuron, this is simply the derivative of the ReL
 For a spiking neuron however, the threshold function is not differentiable (it is undefined at the threshold value).
 Here comes the second approximation.
 We simply pretend that the threshold function was a similar, differentiable function -- this is called a surrogate.
-For example, a function that linearly increases around the threshold value.
-We therefore have: $$\frac{\partial s_i}{\partial u_{i}} = 1$$ around the threshold value, 0 otherwise.
+For example, a function that linearly increases with slope $$1$$ around the threshold value.
+We therefore have: $$\frac{\partial s_i}{\partial u_{i}} \approx 1$$ around the threshold value, 0 otherwise.
 
 ### Calculation of $$\dfrac{\partial L}{\partial s_i}$$:
 
 This term captures how a change in this neuron activity affects the loss of the whole network.
 The calculation of this term is the same for conventional neurons and spiking neurons.
-Note that $$s_i$$ does not affect the loss directly.
+Note that $$s_i$$ might not affect the loss directly if $$i$$ is not an output neuron.
 Instead, it affects the activity of the neurons in the next layer, which themselves affect the next next layer, and so on until the output layer.
 Therefore, an exact computation of $$\frac{\partial L}{\partial s_i}$$ also depends on the synaptic weights in the following layers.
 In conventional deep learning, this is not a big deal: when the error at the output layer becomes available, it is simply sent backward through the whole network.
 Hence the name backpropagation.
-For spiking networks, this is a problem: we can not have signals traveling backward through the same synapses as the forward ones.
+For spiking networks, this is a problem: biological synpases are not bi-directional.
 This is where the third and last approximation jumps in.
 For spiking networks, we instantiate dedicated feedback synapses with random weights, distributing the network error to all neurons in all layers.
 This method is called feedback alignment, because the whole network will learn to align with the randomly chosen feedbacks.
@@ -180,7 +180,7 @@ The actual choice of the loss function, and how feedback alignment is applied, i
 Injecting the three terms back into the gradient equation yields the synaptic learning rule for spiking neural networks:
 
 $$
-\frac{\partial L}{\partial w_{ij}} =  e_i \times \epsilon \ast s_j \: \text{if} \: u_i \: \text{around threshold, 0 otherwise},
+\frac{\partial L}{\partial w_{ij}} \approx  e_i \times \epsilon \ast s_j \; \text{if} \; u_i \; \text{around threshold, 0 otherwise},
 $$
 
 with $$e_i$$ the loss-dependent error.
@@ -191,9 +191,10 @@ Additionally, weight updates can be performed online, while sensory input is bei
 There are multiple instances of synaptic learning rules which relate to this derivation.
 As part of my PhD, we developed the DECOLLE learning rule [[paper](https://www.frontiersin.org/articles/10.3389/fnins.2020.00424/full){:target="_blank"}, [code](https://github.com/nmi-lab/decolle-public){:target="_blank"}] together with Prof. Emre Neftci during a stay at the University of California, Irvine, funded by a DAAD scholarship.
 This learning rule achieves state-of-the-art accuracy on the popular gesture recognition dataset from IBM, DvsGesture.
+It is closely related to other rules such as SuperSpike and e-prop.
 
 ## Conclusion
 
-The CPU in your phone or laptop will not be replaced by a neuromorphic chip.
-Instead, neuromorphic computing opens the door to novel applications where computing speed and energy efficiency matters.
-Spiking neural networks are capable of learning accurate representations online with gradient descent.
+The CPU in your phone or laptop will not be **replaced** by a neuromorphic chip, but it might be complemented by it.
+Neuromorphic computing opens the door to novel applications where computing speed and low power consumption matters.
+With modern synaptic plasticity rules, such chips will also be capable of learning temporal correlations efficiently using approximations of gradient descent.
