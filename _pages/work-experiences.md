@@ -5,16 +5,26 @@ permalink: /work-experiences/
 author_profile: true
 ---
 
-Tech4Gaïa: Noehmi by ocellus (_2020-current_)
+DeepScenario (_2021 - current_)
 -----
 
-In this young [French Tech startup](https://www.tech4gaia.com/), we are developing a smart beehive device called [Noehmi](http://noehmi.com/).
+Powered by deep learning, [DeepScenario](https://www.deepscenario.com/) processes video data recorded by drones fyling over roads.
+We provide the resulting real-world traffic data to help companies improve their autonomous driving algorithms.
+My main focus in this startup is to improve the performance of the deep learning model.
+
+Tech4Gaïa: Noehmi by ocellus (_November 2020 - February 2021_)
+-----
+
+The focus of [Tech4Gaïa](https://www.tech4gaia.com/) is to develop a smart beehive device called [Noehmi](http://noehmi.com/).
 This device includes sensors to monitor the health of the bee colony, and actuators performing simple beekeeping tasks.
-As the Chief Data Officer (CDO) and Chief Web Officer (CWO), I am in charge of all the software involved after the data has left the device.
-The device communicates information to the node.js server with MQTT.
-The data is stored in a PostgreSQL database and processed with SciPy.
-The beekeeper gets this information from the vue.js progressive web app.
-I have implemented all the micro-services using docker-compose.
+I have developed for this startup the first prototype mobile web application, including:
+- setting up a node.js backend using the [loopback](https://loopback.io/) framework
+- wiring up a PostgreSQL database with [timescale extension](https://www.timescale.com/)
+- bidirectional communication between devices and the backend with MQTT messages encoded with protobuf
+- development of a PWA frontend with vue.js
+- docker-based deployment
+
+**Reference - [Farid Maniani](https://fr.linkedin.com/in/farid-maniani-%F0%9F%90%9D-08508517b)**
 
 FZI research center for information technology (_2015-2020_)
 -----
